@@ -33,7 +33,7 @@
             <th>{{player.nationality}}</th>
             <th>{{player.leftFooted}}</th>
             <th>
-                <button>Edit</button>
+                <button class="submit" (click)="editPlayer(player)">Edit</button>
                 <button>Delete</button>
               </th>
           </tr>
@@ -41,4 +41,4 @@
     </table>
   </div>
 </section>
-<app-player-dialog></app-player-dialog>
+<app-player-dialog *ngIf="showModal" [player]="selectedPlayer" (closeDialog)="closeDialog()"></app-player-dialog>
