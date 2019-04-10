@@ -1,3 +1,52 @@
-<p>
-  player-dialog works!
-</p>
+<div id="open-modal" class="modal-window">
+  <div>
+    <a href="#" title="Close" class="modal-close">Close</a>
+    <h1>New Player Form</h1>
+    <div>
+      <form #playerForm="ngForm" novalidate (ngSubmit)="onSubmit(playerForm)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" [ngModel]="player?.name" ngModel required />
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" [ngModel]="player?.lastName" ngModel required />
+        </div>
+
+        <div class="form-group">
+          <label for="position">Position</label>
+          <select class="form-control" name="position" [ngModel]="player?.position" ngModel required>
+            <option *ngFor="let position of squadNumber" [value]="position.key">{{ position.label }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input type="text" class="form-control" name="weight" [ngModel]="player?.weight" ngModel required />
+        </div>
+
+        <div class="form-group">
+          <label for="height">Height</label>
+          <input type="text" class="form-control" name="height" [ngModel]="player?.height" ngModel required />
+        </div>
+
+        <div class="form-group">
+          <label for="nationality">Nationality</label>
+          <select class="form-control" name="nationality" [ngModel]="player?.nationality" ngModel required>
+            <option *ngFor="let nationality of countries" [value]="nationality.key">{{ nationality.label }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="leftFooted">Left Footed</label>
+          <input type="text" class="form-control" name="leftFooted" [ngModel]="player?.leftFooted" ngModel required />
+        </div>
+
+        <div class="submit-container">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
